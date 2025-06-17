@@ -1,5 +1,7 @@
 // utils/ai.ts
-const GOOGLE_AI_API_KEY = "AIzaSyAca4D5kWmAXKSBff_0U7WkJtGFMJz9lco";
+import { GOOGLE_API_KEY } from '@env';
+
+const GOOGLE_AI_API_KEY = GOOGLE_API_KEY || process.env.GOOGLE_API_KEY;
 
 export const getAIResponse = async (prompt: string): Promise<string> => {
     if (!GOOGLE_AI_API_KEY ) {

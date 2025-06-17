@@ -9,6 +9,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { OPENWEATHER_API_KEY } from '@env';
 import { FeatureShowcase } from '../components/FeatureShowcase';
 import { PreferencesModal } from '../components/PreferencesModal';
 import { StockNewsWidget } from '../components/StockNewsWidget';
@@ -24,7 +25,7 @@ const BACKGROUND_FETCH_TASK = 'background-fetch-daily-data';
 
 const fetchWeatherData = async (coords: Location.LocationObjectCoords | null) => {
   if (!coords?.latitude || !coords?.longitude) return null;
-  const NEXT_PUBLIC_OPENWEATHER_API_KEY = "ad7da1f642677cdbb0f14022dd3b8a08";
+  const NEXT_PUBLIC_OPENWEATHER_API_KEY = OPENWEATHER_API_KEY || process.env.OPENWEATHER_API_KEY;
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${NEXT_PUBLIC_OPENWEATHER_API_KEY}&units=metric`;
   try {
     const response = await fetch(url);
