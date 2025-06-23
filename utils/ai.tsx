@@ -24,7 +24,7 @@ export const getAIResponse = async (prompt: string): Promise<string> => {
 };
 
 export const getWeatherSummaryFromAI = async (weatherData: any) => {
-    const prompt = `You are Ohayo, a friendly and witty AI buddy...`; // This function remains the same
+    const prompt =  `You are Ohayo, a friendly and witty AI buddy. Your friend has the following weather conditions: Temperature: ${weatherData.main.temp}°C, Feels Like: ${weatherData.main.feels_like}°C, Humidity: ${weatherData.main.humidity}%, Description: ${weatherData.weather[0].description}. Based on this data, provide a response as a valid JSON object only. The required structure is: { "summary": "A short, friendly, conversational message with one piece of practical advice. Keep it under 25 words.", "joke": "A short, SFW (safe for work), weather-related joke or pun." } Do not include any other text, comments, or markdown outside of the JSON object.`; // This function remains the same
     try {
         const responseText = await getAIResponse(prompt);
         const cleanedResponse = responseText.replace(/```json/g, '').replace(/```/g, '').trim();

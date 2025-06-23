@@ -13,6 +13,10 @@
       "bundleIdentifier": "com.anshul2311.ohayo"
     },
     "android": {
+      "notification": {
+        "icon": "./assets/images/logoFav.png",
+        "color": "#ffffff"
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/logoFav.png",
         "backgroundColor": "#ffffff"
@@ -47,13 +51,14 @@
           "locationAlwaysAndWhenInUsePermission": "Allow Ohayo to use your location for weather and local news."
         }
       ],
-     [
+      [
         "expo-notifications",
         {
           "icon": "./assets/images/logoFav.png",
           "color": "#FFFFFF"
         }
-      ]
+      ],
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
